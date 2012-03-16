@@ -19,9 +19,8 @@ void setup() {
   colorMode(HSB, 100);
   smooth();
   noStroke();
-  ship = new EscapePod();
   // initialize the Space
-  space=new Space(ship);
+  space=new Space();
   // let us add a single rock
   space.addDebris(new Debris(getRandomStart()));
 }
@@ -59,9 +58,9 @@ class Space {
   ArrayList debris;
   EscapePod escapePod;
   // constructor
-  Space(EscapePod pod) {
+  Space() {
     debris=new ArrayList();
-    escapePod=pod;
+    escapePod=new EscapePod();;
   }
   // adds a new debris to the space
   void addDebris(Debris deb) {
@@ -86,7 +85,6 @@ class Space {
       else {
         // display the rock
         d.display();
-     
       }
     }
     escapePod.display();
